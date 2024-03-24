@@ -2,25 +2,25 @@ const serviceData = [
   {
     icon: "ri-truck-line",
     title: "Free Shipping",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle:"Get free shipping on all orders.",
     bg: "#fdefe6",
   },
   {
     icon: "ri-refresh-line",
     title: "Easy Returns",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle: "Easy returns for your convenience.",
     bg: "#ceebe9",
   },
   {
     icon: "ri-secure-payment-line",
     title: "Secure Payment",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle: "Secure payment for peace of mind.",
     bg: "#e2f2b2",
   },
   {
     icon: "ri-exchange-dollar-line",
     title: " Back Guarantee",
-    subtitle: "Lorem ipsum dolor sit amet.",
+    subtitle: "Shop with confidence our guarantee.",
     bg: "#d6e5fb",
   },
 ];
