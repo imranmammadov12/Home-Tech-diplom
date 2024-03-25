@@ -22,15 +22,15 @@ const Checkout = () => {
         <div className="form-group d-flex flex-column">
           <h4 className='mb-4 fw-bold'>Payment</h4>
           <div className="form-check">
-            <Input type="checkbox" className="form-check-input" id="masterCard" />
+            <Input type="checkbox" className="form-check-input shadow-none" id="masterCard" />
             <label className="form-check-label" htmlFor="masterCard"><i class="ri-mastercard-line"></i> Master Card</label>
           </div>
           <div className="form-check">
-            <Input type="checkbox" className="form-check-input" id="visa" />
+            <Input type="checkbox" className="form-check-input shadow-none" id="visa" />
             <label className="form-check-label" htmlFor="visa"><i class="ri-visa-fill"></i> Visa</label>
           </div>
           <div className="form-check">
-            <Input type="checkbox" className="form-check-input" id="paypal" />
+            <Input type="checkbox" className="form-check-input shadow-none" id="paypal" />
             <label className="form-check-label" htmlFor="paypal"><i class="ri-paypal-line"></i> Paypal</label>
           </div>
         </div>
