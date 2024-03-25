@@ -20,7 +20,7 @@ const Cart = () => {
 
   useEffect(()=>{
     window.scrollTo(50,50)
-  }, [cartItems]);
+  }, [cartItems])
 
 
   return (
