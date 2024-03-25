@@ -54,6 +54,24 @@ const ProductDetails = () => {
               </Row>
             </Container>
           </section>
+
+
+          <section>
+            <Container>
+              <Row>
+                <Col lg='12'>
+                    <div className="tab__wrapper d-flex align-items-center gap-5">
+                        <h6>Description</h6>
+                        <h6>Reviews</h6>
+                    </div>
+
+                    <div className="tab__content mt-5">
+                      <p>{description}</p>
+                    </div>
+                </Col>
+              </Row>
+            </Container>
+          </section>
       </Helmet>
   )
 }
