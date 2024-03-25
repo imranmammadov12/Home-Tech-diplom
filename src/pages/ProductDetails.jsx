@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom';
 import products from '../assets/data/products';
 import '../styles/product-details.css';
 import ProductsList from '../components/UI/ProductsList';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../redux/slices/cartSlice';
 
 const ProductDetails = () => {
 
@@ -32,6 +34,7 @@ const ProductDetails = () => {
 
   const reviewUser = useRef('');
   const reviewMsg = useRef('');
+  const dispatch = useDispatch();
 
 
   const submitHandle = (e) => {
@@ -53,6 +56,16 @@ const ProductDetails = () => {
 
     setComments(updatedComments);
   };
+
+
+  const addToCart = () =>{
+    dispatch(cartActions.addItem({
+      id,
+      image: imgUrl,
+      productName,
+      price,
+    }));
+  }
 
   return  (
       <Helmet title={productName}>
@@ -85,7 +98,7 @@ const ProductDetails = () => {
                     </div>
                     <p className='mt-3'>{shortDesc}</p>
   
-                    <motion.button whileTap={{scale: 1.2}} className="buy__btn">Add to Cart</motion.button>
+                    <motion.button whileTap={{scale: 1.2}} className="buy__btn" onClick={addToCart}>Add to Cart</motion.button>
                   </div>
                 </Col>
               </Row>
