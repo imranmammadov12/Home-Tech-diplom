@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useRef, useEffect} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/CommonSection';
@@ -19,7 +19,40 @@ const ProductDetails = () => {
   const {imgUrl, productName, price, avgRating, reviews, description, shortDesc , category} = product;
 
 
-  const relatedProducts = products.filter(item => item.category === category)
+  const relatedProducts = products.filter(item => item.category === category);
+
+
+  const [comments, setComments] = useState([]);
+
+  useEffect(() => {
+    const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+    setComments(savedComments);
+  }, []);
+
+
+  const reviewUser = useRef('');
+  const reviewMsg = useRef('');
+
+
+  const submitHandle = (e) => {
+    e.preventDefault()
+
+    const reviewUserName = reviewUser.current.value;
+    const reviewUserMsg = reviewMsg.current.value;
+
+    const reviewObj = {
+      userName: reviewUserName,
+      text: reviewUserMsg,
+      rating,
+    }
+
+    const existingComments = JSON.parse(localStorage.getItem('comments')) || [];
+    const updatedComments = [...existingComments, reviewObj];
+
+    localStorage.setItem('comments', JSON.stringify(updatedComments));
+
+    setComments(updatedComments);
+  };
 
   return  (
       <Helmet title={productName}>
@@ -88,11 +121,22 @@ const ProductDetails = () => {
                           }
                         </ul>
 
+
+                        <ul>
+                        {comments.map((comment, index) => (
+                        <li key={index} className='mb-4'>
+                        <h6>{comment.userName}</h6>
+                        <span>{comment.rating} (rating)</span>
+                        <p>{comment.text}</p>
+                        </li>
+                        ))}
+                        </ul>
+
                         <div className="review__form">
                           <h4>Leave your experience</h4>
-                            <form action="">
+                            <form action="" onSubmit={submitHandle}>
                               <div className="form__group">
-                                <input type="text" placeholder='Enter name'/>
+                                <input type="text" placeholder='Enter name' ref={reviewUser} required/>
                               </div>
 
 
@@ -106,7 +150,7 @@ const ProductDetails = () => {
 
 
                               <div className="form__group">
-                                <textarea rows={4} type="text" placeholder='Review Message...'/>
+                                <textarea ref={reviewMsg} rows={4} type="text" placeholder='Review Message...' required />
                               </div>
 
 
