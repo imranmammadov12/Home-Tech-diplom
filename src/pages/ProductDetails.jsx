@@ -85,6 +85,34 @@ const ProductDetails = () => {
                             ))
                           }
                         </ul>
+
+                        <div className="review__form">
+                          <h4>Leave your experience</h4>
+                            <form action="">
+                              <div className="form__group">
+                                <input type="text" placeholder='Enter name'/>
+                              </div>
+
+
+                              <div className="form__group d-flex align-items-center gap-5 rating__group">
+                                <motion.span whileTap={{scale: 1.4}} >1<i class="ri-star-s-fill"></i></motion.span>
+                                <motion.span whileTap={{scale: 1.4}} >2<i class="ri-star-s-fill"></i></motion.span>
+                                <motion.span whileTap={{scale: 1.4}} >3<i class="ri-star-s-fill"></i></motion.span>
+                                <motion.span whileTap={{scale: 1.4}} >4<i class="ri-star-s-fill"></i></motion.span>
+                                <motion.span whileTap={{scale: 1.4}} >5<i class="ri-star-s-fill"></i></motion.span>
+                              </div>
+
+
+                              <div className="form__group">
+                                <textarea rows={4} type="text" placeholder='Review Message...'/>
+                              </div>
+
+
+                              <motion.button type='submit' className='buy__btn'>Submit</motion.button>
+                            </form>
+                        </div>
+
+
                         </div>
                        </div>
                     )}
