@@ -5,11 +5,13 @@ import CommonSection from '../components/UI/CommonSection';
 import {motion} from 'framer-motion';
 import { useParams } from 'react-router-dom';
 import products from '../assets/data/products';
-import '../styles/product-details.css'
+import '../styles/product-details.css';
+import ProductsList from '../components/UI/ProductsList';
 
 const ProductDetails = () => {
 
   const [tab,setTab] = useState('desc');
+  const [rating,setRating] = useState(null);
 
   const {id} = useParams()
   const product = products.find(item => item.id === id);
@@ -17,7 +19,7 @@ const ProductDetails = () => {
   const {imgUrl, productName, price, avgRating, reviews, description, shortDesc , category} = product;
 
 
-
+  const relatedProducts = products.filter(item => item.category === category)
 
   return  (
       <Helmet title={productName}>
@@ -95,11 +97,11 @@ const ProductDetails = () => {
 
 
                               <div className="form__group d-flex align-items-center gap-5 rating__group">
-                                <motion.span whileTap={{scale: 1.4}} >1<i class="ri-star-s-fill"></i></motion.span>
-                                <motion.span whileTap={{scale: 1.4}} >2<i class="ri-star-s-fill"></i></motion.span>
-                                <motion.span whileTap={{scale: 1.4}} >3<i class="ri-star-s-fill"></i></motion.span>
-                                <motion.span whileTap={{scale: 1.4}} >4<i class="ri-star-s-fill"></i></motion.span>
-                                <motion.span whileTap={{scale: 1.4}} >5<i class="ri-star-s-fill"></i></motion.span>
+                                <motion.span whileTap={{scale: 1.4}} onClick={()=> setRating(1)} >1<i class="ri-star-s-fill"></i></motion.span>
+                                <motion.span whileTap={{scale: 1.4}} onClick={()=> setRating(2)} >2<i class="ri-star-s-fill"></i></motion.span>
+                                <motion.span whileTap={{scale: 1.4}} onClick={()=> setRating(3)} >3<i class="ri-star-s-fill"></i></motion.span>
+                                <motion.span whileTap={{scale: 1.4}} onClick={()=> setRating(4)} >4<i class="ri-star-s-fill"></i></motion.span>
+                                <motion.span whileTap={{scale: 1.4}} onClick={()=> setRating(5)} >5<i class="ri-star-s-fill"></i></motion.span>
                               </div>
 
 
@@ -117,6 +119,13 @@ const ProductDetails = () => {
                        </div>
                     )}
                 </Col>
+
+
+
+                <Col lg='12' className='mt-5'>
+                <h2 className="related__title">You might also like</h2>
+              </Col>
+              <ProductsList data = {relatedProducts}/>
               </Row>
             </Container>
           </section>
