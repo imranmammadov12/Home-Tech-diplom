@@ -6,6 +6,7 @@ import { Col } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { cartActions } from '../../redux/slices/cartSlice';
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 const ProductCard = ({item}) => {
 
@@ -20,7 +21,7 @@ const ProductCard = ({item}) => {
         imgUrl: item.imgUrl,
     })
    );
-   alert('Procut added!')
+   toast.success('Product added successfully');
 }
 
       return (
