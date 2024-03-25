@@ -9,6 +9,7 @@ import '../styles/product-details.css';
 import ProductsList from '../components/UI/ProductsList';
 import { useDispatch } from 'react-redux';
 import { cartActions } from '../redux/slices/cartSlice';
+import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
 
@@ -55,6 +56,7 @@ const ProductDetails = () => {
     localStorage.setItem('comments', JSON.stringify(updatedComments));
 
     setComments(updatedComments);
+    toast.success('Review submited succesfully!')
   };
 
 
@@ -65,6 +67,7 @@ const ProductDetails = () => {
       productName,
       price,
     }));
+    toast.success('Product added succesfully!')
   }
 
   return  (
