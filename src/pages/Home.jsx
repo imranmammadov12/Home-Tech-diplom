@@ -40,8 +40,17 @@ const Home = () => {
         </Row>
       </Container>
     </section>
-
     <Services />
+
+    <section className="trending__products">
+      <Container>
+        <Row>
+          <Col lg='12' className='text-center mb-5 rounded-pill' style={{ background: '#0a1d37' }}>
+            <h2 className='section__title'>Trending Products</h2>
+          </Col>
+        </Row>
+      </Container>
+    </section>
   </Helmet>
 }
 
