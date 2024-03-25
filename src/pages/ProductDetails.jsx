@@ -68,7 +68,12 @@ const ProductDetails = () => {
       price,
     }));
     toast.success('Product added succesfully!')
-  }
+  };
+
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  }, [product]);
+
 
   return  (
       <Helmet title={productName}>
