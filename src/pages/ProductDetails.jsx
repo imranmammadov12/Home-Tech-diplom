@@ -5,6 +5,7 @@ import CommonSection from '../components/UI/CommonSection';
 import {motion} from 'framer-motion';
 import { useParams } from 'react-router-dom';
 import products from '../assets/data/products';
+import '../styles/product-details.css'
 
 const ProductDetails = () => {
 
