@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import '../styles/home.css'
 
 import Helmet from '../components/Helmet/Helmet';
@@ -7,11 +7,23 @@ import heroImg from '../assets/images/hero-img.png'
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Services from '../services/Services';
+import ProductsList from '../components/UI/ProductsList';
+import products from '../assets/data/products'
 
 
 const Home = () => {
 
   const year = new Date().getFullYear()
+  const [trendingProducts,setTrendingProducts] = useState([]);
+
+
+
+  useEffect(()=>{
+    const filteredTrendingProducts = products.filter(item => item.category 
+        === 'chair');
+
+      setTrendingProducts(filteredTrendingProducts);
+    }, []);
 
 
 
@@ -48,6 +60,7 @@ const Home = () => {
           <Col lg='12' className='text-center mb-5 rounded-pill' style={{ background: '#0a1d37' }}>
             <h2 className='section__title'>Trending Products</h2>
           </Col>
+          <ProductsList  data={trendingProducts}/>
         </Row>
       </Container>
     </section>
