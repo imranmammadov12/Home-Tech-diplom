@@ -68,10 +68,26 @@ const ProductDetails = () => {
                     </div>
 
                     {
-                      tab === 'desc' ? <div className='tab__content mt-5'>
+                      tab === 'desc' ? (<div className='tab__content mt-5'>
                         <p>{description}</p>
-                      </div> : <div>reviews</div>
-                    }
+                      </div>
+                        ):( 
+                       <div className='product__review mt-5'>
+                        <div className="review__wrapper">
+                        <ul>
+                          {
+                            reviews?.map((item,index)=>(
+                              <li kew={index} className='mb-4'>
+                                <h6>John Doe</h6>
+                                <span>{item.rating} (rating)</span>
+                                <p>{item.text}</p>
+                              </li>
+                            ))
+                          }
+                        </ul>
+                        </div>
+                       </div>
+                    )}
                 </Col>
               </Row>
             </Container>
