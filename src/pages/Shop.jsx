@@ -110,7 +110,10 @@ const Shop = () => {
       <section className='pt-0'>
         <Container>
           <Row>
-            <ProductsList  data={productsData}/>
+          {
+              productsData.length === 0? <h1 className='text-center fs-2'>No products are found</h1> :
+              <ProductsList  data={productsData}/>
+            }
           </Row>
         </Container>
       </section>
