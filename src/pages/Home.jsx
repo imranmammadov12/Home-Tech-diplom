@@ -13,8 +13,12 @@ import products from '../assets/data/products'
 
 const Home = () => {
 
-  const year = new Date().getFullYear()
+  const year = new Date().getFullYear();
+
+
   const [trendingProducts,setTrendingProducts] = useState([]);
+  const [bestSalesProducts,setBestSalesProducts] = useState([]);
+  
 
 
 
@@ -22,7 +26,11 @@ const Home = () => {
     const filteredTrendingProducts = products.filter(item => item.category 
         === 'chair');
 
+    const filteredBestSalesProducts = products.filter(item => item.category 
+        === 'sofa');  
+
       setTrendingProducts(filteredTrendingProducts);
+      setBestSalesProducts(filteredBestSalesProducts);
     }, []);
 
 
@@ -61,6 +69,19 @@ const Home = () => {
             <h2 className='section__title'>Trending Products</h2>
           </Col>
           <ProductsList  data={trendingProducts}/>
+        </Row>
+      </Container>
+    </section>
+
+
+    <section className="best__sales">
+      <Container>
+      <Row>
+          <Col lg='12' className='text-center mb-5 rounded-pill' style={{ background: '#0a1d37' }}>
+            <h2 className='section__title'>Best Sales</h2>
+          </Col>
+
+          <ProductsList data={bestSalesProducts} />
         </Row>
       </Container>
     </section>
