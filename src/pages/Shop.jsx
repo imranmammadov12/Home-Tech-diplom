@@ -59,6 +59,15 @@ const Shop = () => {
     setSortOrder(sortValue);
   }
 
+  const handleSearch = e =>{
+    const searchTerm = e.target.value
+
+    const searchedProducts = products.filter(item=>item.productName.toLowerCase().includes(searchTerm.toLowerCase()))
+
+    setProductsData(searchedProducts);
+  }
+
+
 
   return (
     <Helmet title='Shop'>
@@ -90,7 +99,7 @@ const Shop = () => {
             </Col>
             <Col lg='6' md='12'>
               <div className="search__box">
-                <input type="text" placeholder='Search.....' />
+                <input type="text" placeholder='Search.....' onChange={handleSearch} />
                 <span><i class="ri-search-2-line"></i></span>
               </div>
             </Col>
