@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Container, Row, Col} from 'reactstrap';
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/CommonSection';
@@ -8,6 +8,8 @@ import products from '../assets/data/products';
 import '../styles/product-details.css'
 
 const ProductDetails = () => {
+
+  const [tab,setTab] = useState('desc');
 
   const {id} = useParams()
   const product = products.find(item => item.id === id);
@@ -61,13 +63,15 @@ const ProductDetails = () => {
               <Row>
                 <Col lg='12'>
                     <div className="tab__wrapper d-flex align-items-center gap-5">
-                        <h6>Description</h6>
-                        <h6>Reviews</h6>
+                        <h6 className={`${tab ==='desc' ? 'active__tab' : ''}`} onClick={()=> setTab('desc')}>Description</h6>
+                        <h6 className={`${tab ==='rev' ? 'active__tab' : ''}`} onClick={()=> setTab('rev')}>Reviews</h6>
                     </div>
 
-                    <div className="tab__content mt-5">
-                      <p>{description}</p>
-                    </div>
+                    {
+                      tab === 'desc' ? <div className='tab__content mt-5'>
+                        <p>{description}</p>
+                      </div> : <div>reviews</div>
+                    }
                 </Col>
               </Row>
             </Container>

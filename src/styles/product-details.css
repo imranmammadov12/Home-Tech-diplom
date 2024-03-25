@@ -29,6 +29,10 @@
     cursor: pointer;
 }
 
+.active__tab{
+    font-weight: 600;
+}
+
 .tab__content p{
     line-height: 30px;
 }
