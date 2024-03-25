@@ -11,6 +11,7 @@ import ProductsList from '../components/UI/ProductsList'
 const Shop = () => {
 
   const [productsData, setProductsData] = useState(products);
+  const [sortOrder, setSortOrder] = useState(null);
 
   const handleFilter = e =>{
 
@@ -46,6 +47,18 @@ const Shop = () => {
       }
   }
 
+  const handleSort = (e) => {
+    const sortValue = e.target.value;
+    let sortedProducts = [...productsData];
+    if (sortValue === 'ascending') {
+      sortedProducts.sort((a, b) => a.price - b.price);
+    } else if (sortValue === 'descending') {
+      sortedProducts.sort((a, b) => b.price - a.price);
+    }
+    setProductsData(sortedProducts);
+    setSortOrder(sortValue);
+  }
+
 
   return (
     <Helmet title='Shop'>
@@ -68,7 +81,7 @@ const Shop = () => {
             </Col>
             <Col lg='3' md='6' className='text-end'>
             <div className="filter__widget">
-                <select>
+                <select onChange={handleSort}>
                 <option>Sort By</option>
                   <option value="ascending">Ascending</option>
                   <option value="descending">Descending</option>
