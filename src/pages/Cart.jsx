@@ -7,6 +7,7 @@ import { Container, Row, Col } from 'reactstrap';
 import { motion } from 'framer-motion';
 import {cartActions} from '../redux/slices/cartSlice';
 import { useSelector, useDispatch, } from 'react-redux';
+import { useEffect } from 'react';
 
 
 import { Link } from 'react-router-dom';
@@ -15,6 +16,11 @@ const Cart = () => {
 
   const cartItems = useSelector(state=> state.cart.cartItems);
   const totalAmount = useSelector(state => state.cart.totalAmount);
+
+
+  useEffect(()=>{
+    window.scrollTo(50,50)
+  }, [cartItems]);
 
 
   return (
