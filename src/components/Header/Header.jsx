@@ -1,10 +1,11 @@
-import React, {useRef, useNavigate} from 'react';
+import React, {useRef, useEffect} from 'react';
 import './header.css';
 import logo from '../../assets/images/logo1.svg';
 import { Container, Row } from 'reactstrap';
 import userIcon from '../../assets/images/user-icon.png';
 import { motion } from 'framer-motion';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+
 
 
 const nav__links = [
@@ -25,9 +26,39 @@ const nav__links = [
 
 const Header = () => {
 
+  const headerRef = useRef(null);
+
+
+  const menuRef = useRef(null);
+  const navigate = useNavigate()
+
+  const stickyHeaderFunc = () => {
+    window.addEventListener('scroll', ()=>{
+      if(document.body.scrollTop > 80 || document.documentElement.scrollTop > 80){
+        headerRef.current.classList.add('sticky__header')
+      } else{
+        headerRef.current.classList.remove('sticky__header')
+      }
+    })
+  }
+
+  useEffect(()=>{
+      stickyHeaderFunc()
+
+      return () => window.removeEventListener('scroll', stickyHeaderFunc)
+  });
+
+
+
+  const menuToggle = () => menuRef.current.classList.toggle('active__menu');
+
+  const navigateToCart = () => {
+        navigate('/cart')
+  };
+
 
   return (
-    <header className='header'>
+    <header className='header' ref={headerRef}>
      <Container>
             <Row>
               <div className="nav__wrapper">
@@ -40,7 +71,7 @@ const Header = () => {
                   </div>
                 </div>
 
-                  <div className="navigation">
+                  <div className="navigation" ref={menuRef} onClick={menuToggle}>
                     <ul className="menu">
                         {nav__links.map((item, index) =>(
                             <li className="nav__item" key={index}>
@@ -59,7 +90,7 @@ const Header = () => {
                       <i class="ri-heart-line"></i>
                       <span className="badge">2</span>
                     </span>
-                    <span className='cart__icon'>
+                    <span className='cart__icon' onClick={navigateToCart}>
                       <i class="ri-shopping-bag-line"></i>
                       <span className="badge">2</span>
                       </span>
@@ -69,7 +100,7 @@ const Header = () => {
                       </span>
                       
                   <div className="mobile__menu">
-                    <span>
+                    <span onClick={menuToggle}>
                       <i class="ri-menu-line"></i>
                       </span>
                   </div>
