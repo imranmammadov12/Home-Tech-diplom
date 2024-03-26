@@ -45,6 +45,10 @@ const Home = () => {
       setPopularProducts(filteredPopularProducts);
     }, []);
 
+    useEffect(()=>{
+      window.scrollTo(0,0)
+    }, []);
+
 
 
   return <Helmet title={'Home '} >

@@ -23,11 +23,24 @@ const [input1Value, setInput1Value] = useState('');
 const [input2Value, setInput2Value] = useState('');
 const [input3Value, setInput3Value] = useState('');
 const [input4Value, setInput4Value] = useState('');
+const [selectedPayment, setSelectedPayment] = useState('');
 
 const [error1, setError1] = useState('');
 const [error2, setError2] = useState('');
 const [error3, setError3] = useState('');
 const [error4, setError4] = useState('');
+
+
+
+const handleSelectedPayment = (paymentMethod) => {
+  setSelectedPayment(prevState => {
+      if (prevState.includes(paymentMethod)) {
+          return [];
+      } else {
+          return [paymentMethod];
+      }
+  });
+}
 
 const handleChangeInput1 = (e) => {
   const value = e.target.value;
@@ -43,7 +56,7 @@ const handleChangeInput1 = (e) => {
 
 const handleChangeInput2 = (e) => {
   const value = e.target.value;
-  if(/^[0-9]*$/.test(value) || value === ''){
+  if(/^[0-9-]*$/.test(value) || value === ''){
     setInput2Value(value);
     setError2(null);
   } else {
@@ -54,7 +67,7 @@ const handleChangeInput2 = (e) => {
 
 const handleChangeInput3 = (e) => {
   const value = e.target.value;
-  if(/^[0-9]*$/.test(value) || value === ''){
+  if(/^[0-9/]*$/.test(value) || value === ''){
     setInput3Value(value);
     setError3(null);
   } else {
@@ -74,16 +87,20 @@ const handleChangeInput4 = (e) => {
 };
 
 
-  const handlePay = () =>{
-        if(input1Value === '' || input2Value === '' || input3Value === '' || input4Value === ''){
-          toast.error('Please fill in all fields and fill correctly!')
+const handlePay = () =>{
+  if(input1Value === '' || input2Value === '' || input3Value === '' || input4Value === ''){
+    toast.error('Please fill in all fields and fill correctly!')
+    return;
+  }
+  if(!error1 && !error2 && !error3 && !error4){
+      if (selectedPayment.length === 0) {
+          toast.error('Please select a payment method!');
           return;
-        }
-        if(!error1 && !error2 && !error3 && !error4){
-          toast.success('Purchase completed successfully!');
-          navigate('/home');
-        } 
-     }
+      }
+    toast.success('Purchase completed successfully!');
+    navigate('/home');
+  } 
+}
 
 
      useEffect(()=>{
@@ -102,16 +119,19 @@ const handleChangeInput4 = (e) => {
         <div className="form-group d-flex flex-column">
           <h4 className='mb-4 fw-bold'>Payment</h4>
           <div className="form-check">
-            <Input type="checkbox" className="form-check-input shadow-none" id="masterCard" />
-            <label className="form-check-label" htmlFor="masterCard"><i class="ri-mastercard-line"></i> Master Card</label>
+          <label className="form-check-label" htmlFor="masterCard"><i class="ri-mastercard-line"></i>
+            <Input type="checkbox" className="form-check-input shadow-none" id="masterCard" checked={selectedPayment.includes('mastercard')} onChange={() => handleSelectedPayment('mastercard')}/>
+             Master Card</label>
           </div>
           <div className="form-check">
-            <Input type="checkbox" className="form-check-input shadow-none" id="visa" />
-            <label className="form-check-label" htmlFor="visa"><i class="ri-visa-fill"></i> Visa</label>
+          <label className="form-check-label" htmlFor="visa"><i class="ri-visa-fill"></i>
+            <Input type="checkbox" className="form-check-input shadow-none" id="visa" checked={selectedPayment.includes('visa')} onChange={() => handleSelectedPayment('visa')}/>
+             Visa</label>
           </div>
           <div className="form-check">
-            <Input type="checkbox" className="form-check-input shadow-none" id="paypal" />
-            <label className="form-check-label" htmlFor="paypal"><i class="ri-paypal-line"></i> Paypal</label>
+          <label className="form-check-label" htmlFor="paypal"><i class="ri-paypal-line"></i>
+            <Input type="checkbox" className="form-check-input shadow-none" id="paypal" checked={selectedPayment.includes('paypal')} onChange={() => handleSelectedPayment('paypal')}/>
+             Paypal</label>
           </div>
         </div>
 
@@ -119,7 +139,7 @@ const handleChangeInput4 = (e) => {
             <Form className='billing__form'>
                 <FormGroup className='form__group mt-4'>
                     <label> Name on card
-                    <Input type='text'className="w-100 shadow-none" name="name" onChange={handleChangeInput1} />
+                    <Input type='text'className="w-100 shadow-none" name="name" placeholder='NAME SURNAME' onChange={handleChangeInput1} />
                     <small className='text-muted'>Full name as displayed on card</small>
                     {
                       error1 && <p style={{color: 'red', fontSize: 12}}>{error1}</p>
@@ -130,7 +150,7 @@ const handleChangeInput4 = (e) => {
 
                 <FormGroup className='form__group mt-2'>
                     <label> Credit card number
-                    <Input type='text' className="w-100 shadow-none" name="cardNumber" onChange={handleChangeInput2} />
+                    <Input type='text' className="w-100 shadow-none" name="cardNumber" placeholder='****-****-****-****' onChange={handleChangeInput2} />
                     {
                       error2 && <p style={{color: 'red', fontSize: 12}}>{error2}</p>
                     }
@@ -140,7 +160,7 @@ const handleChangeInput4 = (e) => {
 
                 <FormGroup className='form__group mt-2'>
                     <label> Expiration
-                    <Input type='text' className="w-100 shadow-none" name="expiration" onChange={handleChangeInput3}/>
+                    <Input type='text' className="w-100 shadow-none" name="expiration" placeholder='**/**' onChange={handleChangeInput3}/>
                     {
                       error3 && <p style={{color: 'red', fontSize: 12}}>{error3}</p>
                     }
@@ -150,7 +170,7 @@ const handleChangeInput4 = (e) => {
 
                 <FormGroup className='form__group mt-2'>
                     <label> CVV
-                    <Input type='password' className="w-100 shadow-none" name="cvv"  onChange={handleChangeInput4}/>
+                    <Input type='password' className="w-100 shadow-none" name="cvv" placeholder='123'  onChange={handleChangeInput4}/>
                     {
                       error4 && <p style={{color: 'red', fontSize: 12}}>{error4}</p>
                     }
