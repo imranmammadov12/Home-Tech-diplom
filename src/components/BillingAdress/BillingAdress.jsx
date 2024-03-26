@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {Container, Row, Col, Form, FormGroup, Input} from 'reactstrap';
 import Helmet from '../Helmet/Helmet';
 import CommonSection from '../UI/CommonSection';
@@ -55,7 +55,9 @@ const BillingAdress = () => {
         } 
      }
 
-
+     useEffect(()=>{
+        window.scrollTo(0,0)
+      }, []);
 
 
   return (

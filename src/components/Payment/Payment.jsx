@@ -86,6 +86,11 @@ const handleChangeInput4 = (e) => {
      }
 
 
+     useEffect(()=>{
+        window.scrollTo(0,0)
+      }, []);
+
+
   return (
     <Helmet title='Payment'>
         <CommonSection title='Payment' />
