@@ -88,14 +88,14 @@ const BillingAdress = () => {
 
             <FormGroup className='form__group mt-2'>
                 <label> Email
-                <Input type='text' className="w-100 shadow-none" onChange={handleChangeInput3}/>
+                <Input type='text' className="w-100 shadow-none" placeholder='example@mail.com' onChange={handleChangeInput3}/>
                 </label>
             </FormGroup>
 
 
             <FormGroup className='form__group mt-2'>
                 <label> Adress
-                <Input type='text' className="w-100 shadow-none" placeholder='contry, city, st, hse'onChange={handleChangeInput4}/>
+                <Input type='text' className="w-100 shadow-none" placeholder='country,  city,  st,  hse...'onChange={handleChangeInput4}/>
                 </label>
             </FormGroup>
         </Form>
