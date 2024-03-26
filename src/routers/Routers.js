@@ -7,6 +7,7 @@ import Shop from '../pages/Shop';
 import Cart from '../pages/Cart';
 import ProductDetails from '../pages/ProductDetails';
 import Checkout from '../pages/Checkout';
+import Payment from '../components/Payment/Payment';
 
 
 const Routers = () => {
