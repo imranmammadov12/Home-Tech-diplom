@@ -90,7 +90,7 @@ const Header = () => {
                   <div className="nav__icons">
                     <span className='fav__icon'>
                       <i class="ri-heart-line"></i>
-                      <span className="badge">2</span>
+                      <span className="badge">4</span>
                     </span>
                     <span className='cart__icon' onClick={navigateToCart}>
                       <i class="ri-shopping-bag-line"></i>
@@ -115,4 +115,4 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Header;
