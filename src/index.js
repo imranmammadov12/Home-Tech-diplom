@@ -9,6 +9,7 @@ import store from "./redux/store";
 import { Provider } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import BottomToast from "./components/BottomToast/BottomToast";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -22,6 +23,7 @@ root.render(
         closeOnClick
         pauseOnHover = {false}
 />
+  <BottomToast />
       <App />
     </Provider>
     </BrowserRouter>
