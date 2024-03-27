@@ -8,6 +8,7 @@ import Cart from '../pages/Cart';
 import ProductDetails from '../pages/ProductDetails';
 import Checkout from '../pages/Checkout';
 import Payment from '../components/Payment/Payment';
+import Favorite from '../pages/Favorite';
 
 
 const Routers = () => {
