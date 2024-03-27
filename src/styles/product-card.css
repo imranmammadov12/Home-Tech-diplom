@@ -26,6 +26,7 @@
 .product__card-bottom span i{
     font-style: 1.2rem;
     padding: 5px;
+    margin: 5px;
     background: var(--primary-color);
     color: #fff;
     border-radius: 50px;
