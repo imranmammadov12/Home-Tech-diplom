@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../styles/cart.css';
 import Helmet from '../components/Helmet/Helmet';
 import CommonSection from '../components/UI/CommonSection';
@@ -15,7 +15,10 @@ const Favorite = () => {
 
 
   const favoriteItems = useSelector(state=> state.favorite.favoriteItems);
-  const totalAmount = useSelector(state => state.favorite.favoriteAmount);
+
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  }, []);
   
 
   return (
@@ -25,7 +28,7 @@ const Favorite = () => {
           <Container>
             <Row>
               <Col lg='9'>             
-              {favoriteItems.length === 0 ? (<h2 className='fs-4 text-center'>No item added to the cart</h2>) : (<table className='table bordered'>
+              {favoriteItems.length === 0 ? (<h2 className='fs-4 text-center'>No item added to the favorites</h2>) : (<table className='table bordered'>
                   <thead>
                     <tr>
                       <th>Image</th>
