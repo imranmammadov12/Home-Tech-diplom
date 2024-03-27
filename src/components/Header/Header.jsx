@@ -29,6 +29,7 @@ const Header = () => {
 
   const headerRef = useRef(null);
   const totalQuantity = useSelector(state => state.cart.totalQuantity);
+  const totalQuantityFavorites = useSelector(state => state.favorite.totalQuantity);
 
 
   const menuRef = useRef(null);
@@ -57,6 +58,10 @@ const Header = () => {
   const navigateToCart = () => {
         navigate('/cart')
   };
+
+  const navigateToFavorite = () => {
+    navigate('/favorite')
+  }
 
 
   return (
@@ -88,9 +93,9 @@ const Header = () => {
                   </div>
 
                   <div className="nav__icons">
-                    <span className='fav__icon'>
+                    <span className='fav__icon' onClick={navigateToFavorite}>
                       <i class="ri-heart-line"></i>
-                      <span className="badge">4</span>
+                      <span className="badge">{totalQuantityFavorites}</span>
                     </span>
                     <span className='cart__icon' onClick={navigateToCart}>
                       <i class="ri-shopping-bag-line"></i>
