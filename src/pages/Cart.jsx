@@ -28,6 +28,10 @@ const Cart = () => {
     }
   }
 
+  const handleContinueShopping = (e) => {
+    navigate('/shop');
+  }
+
 
   useEffect(()=>{  
     window.scrollTo(0,0)
@@ -74,7 +78,7 @@ const Cart = () => {
             
                 <button className="buy__btn w-100" onClick={handleCheckout}>Checkout</button>
 
-                  <button className="buy__btn w-100  mt-3"><Link to='/shop'>Continue Shopping</Link></button>
+                  <button className="buy__btn w-100  mt-3" onClick={handleContinueShopping}>Continue Shopping</button>
                 </div>
               </Col>
             </Row>
