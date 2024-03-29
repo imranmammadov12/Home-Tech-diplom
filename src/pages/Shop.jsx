@@ -79,7 +79,7 @@ const Shop = () => {
             <Col lg='3' md='6'>
               <div className="filter__widget">
                 <select onChange={handleFilter}>
-                <option>Filter By Category</option>
+                <option disabled selected>Filter By Category</option>
                   <option value="sofa">Sofa</option>
                   <option value="mobile">Mobile</option>
                   <option value="chair">Chair</option>
@@ -91,8 +91,8 @@ const Shop = () => {
             <Col lg='3' md='6' className='text-end'>
             <div className="filter__widget">
                 <select onChange={handleSort}>
-                <option>Sort By</option>
-                  <option value="ascending">Ascending</option>
+                <option disabled selected>Sort By Price</option>
+                  <option value="ascending">Ascending </option>
                   <option value="descending">Descending</option>
                 </select>
               </div>
