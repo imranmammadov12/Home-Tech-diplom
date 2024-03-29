@@ -59,14 +59,25 @@ const ProductDetails = () => {
       rating,
     }
 
-    const existingComments = JSON.parse(localStorage.getItem('comments')) || [];
-    const updatedComments = [...existingComments, reviewObj];
+    const existingComments = JSON.parse(localStorage.getItem('comments')) || {};
+    const productComments = existingComments[id] || [];
+    const updatedComments = {
+      ...existingComments,
+      [id]: [...productComments, reviewObj]
+    };
 
     localStorage.setItem('comments', JSON.stringify(updatedComments));
 
-    setComments(updatedComments);
+    setComments(updatedComments[id]);
     toast.success('Review submited succesfully!')
+
+    setSelectedRating(null);
   };
+
+  useEffect(() => {
+    const savedComments = JSON.parse(localStorage.getItem('comments')) || {};
+    setComments(savedComments[id] || []);
+  }, [id])
 
 
   const addToCart = () =>{
