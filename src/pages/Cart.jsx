@@ -8,14 +8,25 @@ import { motion } from 'framer-motion';
 import {cartActions} from '../redux/slices/cartSlice';
 import { useSelector, useDispatch, } from 'react-redux';
 import { useEffect } from 'react';
+import { toast } from 'react-toastify';
 
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
+  const navigate = useNavigate();
   const cartItems = useSelector(state=> state.cart.cartItems);
   const totalAmount = useSelector(state => state.cart.totalAmount);
+
+  const handleCheckout = (e) =>{
+    if(totalAmount === 0){
+      toast.error('Your cart is empty. Please add items to your cart before checking out.');
+      return;
+    } else {
+      navigate('/checkout');
+    }
+  }
 
 
   useEffect(()=>{  
@@ -61,7 +72,7 @@ const Cart = () => {
                 <p className='fs-6 mt-2'>taxes and shipping will calculate in checkout</p>
                 <div>
             
-                  <button className="buy__btn w-100"><Link to='/checkout'>Checkout</Link></button>
+                <button className="buy__btn w-100" onClick={handleCheckout}>Checkout</button>
 
                   <button className="buy__btn w-100  mt-3"><Link to='/shop'>Continue Shopping</Link></button>
                 </div>
