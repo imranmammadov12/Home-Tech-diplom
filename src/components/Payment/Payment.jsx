@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, FormGroup, Input } from 'reactstrap';
 import Helmet from '../Helmet/Helmet';
 import { motion } from 'framer-motion';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import CommonSection from '../UI/CommonSection';
+import { cartActions } from '../../redux/slices/cartSlice';
 
 const Payment = () => {
 
@@ -21,7 +22,7 @@ const Payment = () => {
 
 // VALID FORM CHECK!
 
-
+const dispatch = useDispatch();
 
 const [input1Value, setInput1Value] = useState('');
 const [input2Value, setInput2Value] = useState('');
@@ -92,6 +93,7 @@ const handlePay = () =>{
     return;
   }
   if(!error1 && !error2 && !error3 && !error4){
+    dispatch(cartActions.clearCart()); 
     toast.success('Purchase completed successfully!');
     navigate('/home');
   } 

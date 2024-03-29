@@ -58,6 +58,12 @@ const cartSlice = createSlice({
 
       saveState(state);
     },
+    clearCart: (state) => {
+      state.cartItems = [];
+      state.totalAmount = 0;
+      state.totalQuantity = 0;
+      saveState(state);
+    },
   },
 });
 
