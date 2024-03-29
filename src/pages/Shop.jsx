@@ -12,10 +12,26 @@ const Shop = () => {
 
   const [productsData, setProductsData] = useState(products);
   const [sortOrder, setSortOrder] = useState(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const handleFilter = e =>{
 
     const filterValue = e.target.value
+
+
+    setSelectedCategory(filterValue); 
+    if (filterValue === 'all') {
+      setProductsData(products);
+    } else {
+      const filteredProducts = products.filter((item) => item.category === filterValue);
+      setProductsData(filteredProducts);
+    }
+
+      if(filterValue === 'all'){
+        const filteredProducts = products;
+      }
+
+
       if(filterValue ==='sofa'){
         const filteredProducts = products.filter(item=>item.category ==='sofa')
 
@@ -60,9 +76,14 @@ const Shop = () => {
   }
 
   const handleSearch = e =>{
-    const searchTerm = e.target.value
+    const searchTerm = e.target.value.toLowerCase();
 
-    const searchedProducts = products.filter(item=>item.productName.toLowerCase().includes(searchTerm.toLowerCase()))
+    let searchedProducts = products.filter((item) => item.productName.toLowerCase().includes(searchTerm));
+
+    if (selectedCategory) {
+      searchedProducts = searchedProducts.filter((item) => item.category === selectedCategory);
+    }
+
 
     setProductsData(searchedProducts);
   }
@@ -80,6 +101,7 @@ const Shop = () => {
               <div className="filter__widget">
                 <select onChange={handleFilter}>
                 <option disabled selected>Filter By Category</option>
+                  <option value="all">All</option>
                   <option value="sofa">Sofa</option>
                   <option value="mobile">Mobile</option>
                   <option value="chair">Chair</option>
