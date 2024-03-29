@@ -36,7 +36,7 @@ const Cart = () => {
                       <th>Image</th>
                       <th>Title</th>
                       <th>Price</th>
-                      <th>Qty</th>
+                      <th>Quantity</th>
                       <th>Delete</th>
                     </tr>
                   </thead>
@@ -88,7 +88,7 @@ const Tr = ({item}) =>{
       </td>
       <td>{item.productName}</td>
       <td>${item.price}</td>
-      <td>{item.quantity}px</td>
+      <td>{item.quantity}</td>
       <td>
       <motion.i whileTap={{scale:5.2}} onClick={deleteProduct} class="ri-delete-bin-line"></motion.i>
       </td>
