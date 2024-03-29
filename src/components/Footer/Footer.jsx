@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './footer.css';
 
 import {Container, Row, Col, ListGroup, ListGroupItem} from 'reactstrap';
@@ -6,6 +6,10 @@ import {Link} from 'react-router-dom';
 import logo from '../../assets/images/logo2.svg'
 
 const Footer = () => {
+
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  }, []);
 
   const year = new Date().getFullYear();
   return (
@@ -25,20 +29,12 @@ const Footer = () => {
             </Col>
 
             <Col lg='3' className='mb-4' md='4'>
-              <div className="footer__quick-links">
-                <h4 className="quick__links-title">Top Categories</h4>
-                <ListGroup className='mb-3'>
-                  <ListGroupItem className='ps-0 border-0'>
-                    <Link to='#'>Mobile Phones</Link>
-                  </ListGroupItem>
-                  <ListGroupItem className='ps-0 border-0'>
-                    <Link to='#'>Modern Sofa</Link>
-                  </ListGroupItem>
-                  <ListGroupItem className='ps-0 border-0'>
-                    <Link to='#'>Arm Chair</Link>
-                  </ListGroupItem>
-                  <ListGroupItem className='ps-0 border-0'>
-                    <Link to='#'>Smart Watches</Link>
+            <div className="footer__quick-links">
+                <h4 className="quick__links-title">In social Media</h4>
+                <ListGroup className='footer__contact'>
+                  <ListGroupItem className='ps-0 border-0 d-flex align-items-center gap-2'>
+                    <span><i class="ri-instagram-line"></i></span>
+                    <a href="https://www.instagram.com/homeandtechh/"><p>instagram.com/homeandtechh</p></a>
                   </ListGroupItem>
                 </ListGroup>
               </div>
@@ -53,12 +49,6 @@ const Footer = () => {
                   </ListGroupItem>
                   <ListGroupItem className='ps-0 border-0'>
                     <Link to='/cart'>Cart</Link>
-                  </ListGroupItem>
-                  <ListGroupItem className='ps-0 border-0'>
-                    <Link to='/login'>Login</Link>
-                  </ListGroupItem>
-                  <ListGroupItem className='ps-0 border-0'>
-                    <Link to='#'>Privacy Policy</Link>
                   </ListGroupItem>
                 </ListGroup>
               </div>

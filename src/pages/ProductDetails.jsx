@@ -31,7 +31,7 @@ const ProductDetails = () => {
   const {imgUrl, productName, price, avgRating, reviews, description, shortDesc , category} = product;
 
 
-  const relatedProducts = products.filter(item => item.category === category);
+  const relatedProducts = products.filter(item => item.category === category && item.id !== id).slice(0, 4);
 
 
   const [comments, setComments] = useState([]);

@@ -101,11 +101,6 @@ const Header = () => {
                       <i class="ri-shopping-bag-line"></i>
                       <span className="badge">{totalQuantity}</span>
                       </span>
-
-                    <span>
-                      <motion.img whileTap={{scale: 1.9}} src={userIcon} alt=''/>
-                      </span>
-                      
                   <div className="mobile__menu">
                     <span onClick={menuToggle}>
                       <i class="ri-menu-line"></i>
