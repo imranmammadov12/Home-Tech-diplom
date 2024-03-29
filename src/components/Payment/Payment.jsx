@@ -23,24 +23,12 @@ const [input1Value, setInput1Value] = useState('');
 const [input2Value, setInput2Value] = useState('');
 const [input3Value, setInput3Value] = useState('');
 const [input4Value, setInput4Value] = useState('');
-const [selectedPayment, setSelectedPayment] = useState('');
 
 const [error1, setError1] = useState('');
 const [error2, setError2] = useState('');
 const [error3, setError3] = useState('');
 const [error4, setError4] = useState('');
 
-
-
-const handleSelectedPayment = (paymentMethod) => {
-  setSelectedPayment(prevState => {
-      if (prevState.includes(paymentMethod)) {
-          return [];
-      } else {
-          return [paymentMethod];
-      }
-  });
-}
 
 const handleChangeInput1 = (e) => {
   const value = e.target.value;
@@ -93,10 +81,6 @@ const handlePay = () =>{
     return;
   }
   if(!error1 && !error2 && !error3 && !error4){
-      if (selectedPayment.length === 0) {
-          toast.error('Please select a payment method!');
-          return;
-      }
     toast.success('Purchase completed successfully!');
     navigate('/home');
   } 
@@ -115,27 +99,6 @@ const handlePay = () =>{
   <Container>
     <Row>
     <Col lg='6'>
-      <div className="form-group d-flex flex-column">
-        <div className="form-group d-flex flex-column">
-          <h4 className='mb-4 fw-bold'>Payment</h4>
-          <div className="form-check">
-          <label className="form-check-label" htmlFor="masterCard"><i class="ri-mastercard-line"></i>
-            <Input type="checkbox" className="form-check-input shadow-none" id="masterCard" checked={selectedPayment.includes('mastercard')} onChange={() => handleSelectedPayment('mastercard')}/>
-             Master Card</label>
-          </div>
-          <div className="form-check">
-          <label className="form-check-label" htmlFor="visa"><i class="ri-visa-fill"></i>
-            <Input type="checkbox" className="form-check-input shadow-none" id="visa" checked={selectedPayment.includes('visa')} onChange={() => handleSelectedPayment('visa')}/>
-             Visa</label>
-          </div>
-          <div className="form-check">
-          <label className="form-check-label" htmlFor="paypal"><i class="ri-paypal-line"></i>
-            <Input type="checkbox" className="form-check-input shadow-none" id="paypal" checked={selectedPayment.includes('paypal')} onChange={() => handleSelectedPayment('paypal')}/>
-             Paypal</label>
-          </div>
-        </div>
-
-
             <Form className='billing__form'>
                 <FormGroup className='form__group mt-4'>
                     <label> Name on card
@@ -179,7 +142,6 @@ const handlePay = () =>{
             </Form>
 
             <motion.button whileTap={{scale:1.2}} className='buy__btn'  onClick={handlePay}>Pay</motion.button>
-            </div>
       </Col>
 
       <Col lg='6'>
