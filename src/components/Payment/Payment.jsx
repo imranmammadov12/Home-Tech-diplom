@@ -35,6 +35,29 @@ const [error3, setError3] = useState('');
 const [error4, setError4] = useState('');
 
 
+const isValidCreditCardNumber = (value) => {
+  const cleanedNumber = value.replace(/\D/g, '');
+  let sum = 0;
+  let isEven = false;
+
+  for (let i = cleanedNumber.length - 1; i >= 0; i--) {
+      let digit = parseInt(cleanedNumber.charAt(i), 10);
+
+      if (isEven) {
+          digit *= 2;
+          if (digit > 9) {
+              digit -= 9;
+          }
+      }
+
+      sum += digit;
+      isEven = !isEven;
+  }
+
+  return sum % 10 === 0;
+};
+
+
 const handleChangeInput1 = (e) => {
   const value = e.target.value;
   if(/^[a-zA-Z]*$/.test(value) || value === ''){
@@ -49,12 +72,13 @@ const handleChangeInput1 = (e) => {
 
 const handleChangeInput2 = (e) => {
   const value = e.target.value;
-  if(/^[0-9-]*$/.test(value) || value === ''){
-    setInput2Value(value);
-    setError2(null);
-  } else {
-    setError2('Enter only digits please');
+
+  if (!/^\d*$/.test(value)) {
+      return;
   }
+
+  setInput2Value(value);
+  setError2(isValidCreditCardNumber(value) ? '' : 'Enter a valid credit card number');
 };
 
 
@@ -126,7 +150,7 @@ const handlePay = () =>{
 
                 <FormGroup className='form__group mt-2'>
                     <label> Credit card number
-                    <Input type='text' className="w-100 shadow-none" name="cardNumber" placeholder='****-****-****-****' onChange={handleChangeInput2} />
+                    <Input type='text' className="w-100 shadow-none" maxLength={16} name="cardNumber" placeholder='****-****-****-****' value={input2Value} onChange={handleChangeInput2} />
                     {
                       error2 && <p style={{color: 'red', fontSize: 12}}>{error2}</p>
                     }
