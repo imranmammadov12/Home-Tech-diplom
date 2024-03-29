@@ -12,6 +12,10 @@ const Payment = () => {
     const totalQty = useSelector(state => state.cart.totalQuantity);
     const totalAmount = useSelector(state => state.cart.totalAmount);
 
+
+    const [expiryMonth, setExpiryMonth] = useState('');
+    const [expiryYear, setExpiryYear] = useState('');
+
     const navigate = useNavigate();
 
 
@@ -55,13 +59,20 @@ const handleChangeInput2 = (e) => {
 
 const handleChangeInput3 = (e) => {
   const value = e.target.value;
-  if(/^[0-9/]*$/.test(value) || value === ''){
-    setInput3Value(value);
+  const cleanedValue = value.replace(/\D/g, '');
+
+  if (/^\d*$/.test(cleanedValue)) {
+    const month = cleanedValue.slice(0, 2);
+    const year = cleanedValue.slice(2, 4);
+
+    setExpiryMonth(month);
+    setExpiryYear(year);
+    setInput3Value(`${month}/${year}`);
     setError3(null);
   } else {
-    setError3('Enter only digits please');
+    setError3('Enter a valid expiration date');
   }
-};
+}
 
 
 const handleChangeInput4 = (e) => {
@@ -123,7 +134,7 @@ const handlePay = () =>{
 
                 <FormGroup className='form__group mt-2'>
                     <label> Expiration
-                    <Input type='text' className="w-100 shadow-none" name="expiration" placeholder='**/**' onChange={handleChangeInput3}/>
+                    <Input type='text' className="w-100 shadow-none" name="expiration" placeholder='MM/YY' value={input3Value} onChange={handleChangeInput3}/>
                     {
                       error3 && <p style={{color: 'red', fontSize: 12}}>{error3}</p>
                     }
