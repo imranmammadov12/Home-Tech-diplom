@@ -60,7 +60,7 @@ const isValidCreditCardNumber = (value) => {
 
 const handleChangeInput1 = (e) => {
   const value = e.target.value;
-  if(/^[a-zA-Z]*$/.test(value) || value === ''){
+  if(/^[a-zA-Z\s]*$/.test(value) || value === ''){
     setInput1Value(value);
     setError1(null);
   } else {
@@ -170,7 +170,7 @@ const handlePay = () =>{
 
                 <FormGroup className='form__group mt-2'>
                     <label> CVV
-                    <Input type='password' className="w-100 shadow-none" name="cvv" placeholder='123'  onChange={handleChangeInput4}/>
+                    <Input type='password' className="w-100 shadow-none" maxLength={4} name="cvv" placeholder='123'  onChange={handleChangeInput4}/>
                     {
                       error4 && <p style={{color: 'red', fontSize: 12}}>{error4}</p>
                     }
