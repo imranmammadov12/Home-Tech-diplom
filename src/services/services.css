@@ -4,7 +4,12 @@
     align-items: center;
     column-gap: 0.5rem;
     border-radius: 5px;
+    transition: 0.3s ease-in-out;
     cursor: pointer;
+}
+
+.service__item:hover{
+  transform: scale(0.9);
 }
 
 .service__item span i{

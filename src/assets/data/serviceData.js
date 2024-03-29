@@ -2,7 +2,7 @@ const serviceData = [
   {
     icon: "ri-truck-line",
     title: "Free Shipping",
-    subtitle:"Get free shipping on all orders.",
+    subtitle:"Get free shipping on all orders today.",
     bg: "#fdefe6",
   },
   {

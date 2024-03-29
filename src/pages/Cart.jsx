@@ -18,10 +18,9 @@ const Cart = () => {
   const totalAmount = useSelector(state => state.cart.totalAmount);
 
 
-  useEffect(()=>{
-    window.scrollTo(50,50)
-  }, [cartItems])
-
+  useEffect(()=>{  
+    window.scrollTo(0,0)
+  }, []);
 
   return (
     <Helmet title='Cart'>

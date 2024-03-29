@@ -1,11 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import CommonSection from '../components/UI/CommonSection';
 import Helmet from '../components/Helmet/Helmet';
 import { Container, Row, Col } from 'reactstrap';
 import '../styles/shop.css';
 import products from '../assets/data/products';
-import ProductsList from '../components/UI/ProductsList'
+import ProductsList from '../components/UI/ProductsList';
 
 
 const Shop = () => {
@@ -87,6 +87,11 @@ const Shop = () => {
 
     setProductsData(searchedProducts);
   }
+
+
+  useEffect(()=>{
+    window.scrollTo(0,0)
+  }, []);
 
 
 

@@ -1,6 +1,5 @@
-import React from 'react'
-import { Container, Row, Col } from 'reactstrap'
-import {motion} from 'framer-motion'
+import React from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
 import './services.css';
 
@@ -13,13 +12,13 @@ const Services = () => {
             {
                 serviceData.map((item,index) =>(
                     <Col lg='3' md='4' key={index}>
-                <motion.div whileTap={{scale: 1.1}} className="service__item" style={{background: `${item.bg}`}}>
+                <div whileTap={{scale: 1.1}} className="service__item" style={{background: `${item.bg}`}}>
                     <span><i class={item.icon}></i></span>
                     <div>
                         <h3>{item.title}</h3>
                         <p>{item.subtitle}</p>
                     </div>
-                </motion.div>
+                </div>
             </Col>
                 ))
             }
