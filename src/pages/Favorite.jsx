@@ -15,6 +15,7 @@ const Favorite = () => {
 
 
   const favoriteItems = useSelector(state=> state.favorite.favoriteItems);
+  const totalAmount = useSelector(state => state.favorite.favoriteAmount);
 
   useEffect(()=>{
     window.scrollTo(0,0)

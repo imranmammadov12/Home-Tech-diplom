@@ -7,12 +7,14 @@ import { useParams } from 'react-router-dom';
 import products from '../assets/data/products';
 import '../styles/product-details.css';
 import ProductsList from '../components/UI/ProductsList';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { cartActions } from '../redux/slices/cartSlice';
 import { toast } from 'react-toastify';
+import { favoriteActions } from '../redux/slices/favoriteSlice';
 
 const ProductDetails = () => {
 
+  const favoriteItems = useSelector(state => state.favorite.favoriteItems);
 
   const [selectedRating, setSelectedRating] = useState(null);
 
@@ -77,6 +79,25 @@ const ProductDetails = () => {
     toast.success('Product added succesfully!')
   };
 
+
+  const addToFavorite = () => {
+    const isAlreadyAdded = favoriteItems.some((favoriteItem) => favoriteItem.id === product.id); 
+    if (!isAlreadyAdded) {
+        const newFavoriteItem = {
+            id: product.id,
+            productName: product.productName,
+            price: product.price,
+            imgUrl: product.imgUrl,
+        };
+        dispatch(favoriteActions.addItem(newFavoriteItem));
+        toast.success('Product added successfully');
+    } else {
+        toast.error('Product already added to favorites');
+    }
+}
+
+
+
   useEffect(()=>{
     window.scrollTo(0,0)
   }, []);
@@ -112,8 +133,10 @@ const ProductDetails = () => {
                     <span>Category :  {category.toUpperCase()}</span>
                     </div>
                     <p className='mt-3'>{shortDesc}</p>
-  
+                    <div className="buttons__container">
                     <motion.button whileTap={{scale: 1.2}} className="buy__btn" onClick={addToCart}>Add to Cart</motion.button>
+                    <motion.button whileTap={{scale: 1.2}} className="buy__btn" onClick={addToFavorite}>Add to Favorites</motion.button>
+                    </div>
                   </div>
                 </Col>
               </Row>
