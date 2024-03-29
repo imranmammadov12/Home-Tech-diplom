@@ -13,6 +13,13 @@ import { toast } from 'react-toastify';
 
 const ProductDetails = () => {
 
+
+  const [selectedRating, setSelectedRating] = useState(null);
+
+  const handleSelectRating = (rating) => {
+    setSelectedRating(rating);
+  };
+
   const [tab,setTab] = useState('desc');
   const [rating,setRating] = useState(null);
 
@@ -160,16 +167,18 @@ const ProductDetails = () => {
                                 <input type="text" placeholder='Enter name' ref={reviewUser} required/>
                               </div>
 
-
-                              <div className="form__group d-flex align-items-center gap-5 rating__group">
-                                <motion.span whileTap={{scale: 1.4}} onClick={()=> setRating(1)} >1<i class="ri-star-s-fill"></i></motion.span>
-                                <motion.span whileTap={{scale: 1.4}} onClick={()=> setRating(2)} >2<i class="ri-star-s-fill"></i></motion.span>
-                                <motion.span whileTap={{scale: 1.4}} onClick={()=> setRating(3)} >3<i class="ri-star-s-fill"></i></motion.span>
-                                <motion.span whileTap={{scale: 1.4}} onClick={()=> setRating(4)} >4<i class="ri-star-s-fill"></i></motion.span>
-                                <motion.span whileTap={{scale: 1.4}} onClick={()=> setRating(5)} >5<i class="ri-star-s-fill"></i></motion.span>
-                              </div>
-
-
+                        <div className="form__group d-flex align-items-center gap-5 rating__group">
+                                     {[1, 2, 3, 4, 5].map((value) => (
+                                      <motion.span
+                                        key={value}
+                                        whileTap={{ scale: 1.4 }}
+                                        onClick={() => handleSelectRating(value)}
+                                        style={{ fontSize: selectedRating === value ? '1.4rem' : '1rem'}} 
+                                      >
+                                        {value}<i className="ri-star-s-fill"></i>
+                                      </motion.span>
+                                  ))}
+                        </div>
                               <div className="form__group">
                                 <textarea ref={reviewMsg} rows={4} type="text" placeholder='Review Message...' required />
                               </div>
