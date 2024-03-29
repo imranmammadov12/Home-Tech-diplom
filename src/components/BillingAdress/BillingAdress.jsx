@@ -18,7 +18,9 @@ const BillingAdress = () => {
     const [input1Value, setInput1Value] = useState('');
     const [input2Value, setInput2Value] = useState('');
     const [input3Value, setInput3Value] = useState('');
+    const [errorEmail, setErrorEmail] = useState('');
     const [input4Value, setInput4Value] = useState('');
+
 
 
     const handleChangeInput1 = (e) => {
@@ -37,6 +39,12 @@ const BillingAdress = () => {
       const handleChangeInput3 = (e) => {
         const value = e.target.value;
         setInput3Value(value);
+      
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+          setErrorEmail('Please enter a valid email address');
+        } else {
+          setErrorEmail('');
+        }
       };
       
       
@@ -90,6 +98,9 @@ const BillingAdress = () => {
                 <label> Email
                 <Input type='text' className="w-100 shadow-none" placeholder='example@mail.com' onChange={handleChangeInput3}/>
                 </label>
+                {
+                      errorEmail && <p style={{color: 'red', fontSize: 12}}>{errorEmail}</p>
+                }
             </FormGroup>
 
 
