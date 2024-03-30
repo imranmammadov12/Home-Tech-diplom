@@ -38,7 +38,7 @@ const addToFavorite = () => {
             price: item.price,
             imgUrl: item.imgUrl,
         }));
-        toast.success('Product added successfully');
+        toast.success('Product added to favorites successfully');
     } else {
         toast.error('Product already added to favorites');
     }

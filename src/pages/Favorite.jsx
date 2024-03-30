@@ -9,8 +9,6 @@ import { motion } from 'framer-motion';
 import {favoriteActions} from '../redux/slices/favoriteSlice';
 import { useSelector, useDispatch, } from 'react-redux';
 
-import { Link } from 'react-router-dom';
-
 const Favorite = () => {
 
 
