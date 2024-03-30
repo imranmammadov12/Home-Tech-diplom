@@ -1,13 +1,14 @@
 import productImg01 from "../images/double-sofa-01.png";
 import productImg02 from "../images/double-sofa-02.png";
 import productImg03 from "../images/double-sofa-03.png";
+import productImg0202 from "../images/sofa.jpg";
 
 import productImg04 from "../images/single-sofa-01.jpg";
 import productImg05 from "../images/single-sofa-02.jpg";
 import productImg06 from "../images/single-sofa-03.jpg";
 import productImg007 from "../images/single-sofa-04.png";
 
-import productImg07 from "../images/arm-chair-01.jpg";
+import productImg07 from "../images/chair-pillow.jpg";
 import productImg08 from "../images/arm-chair-02.jpg";
 import productImg09 from "../images/arm-chair-03.jpg";
 import productImg10 from "../images/arm-chair-01.jpg";
@@ -51,7 +52,7 @@ const products = [
   {
     id: "02",
     productName: "Rivet Bigelow Modern ",
-    imgUrl: productImg02,
+    imgUrl: productImg0202,
     category: "sofa",
     price: 253,
     shortDesc:
@@ -73,7 +74,7 @@ const products = [
 
   {
     id: "03",
-    productName: "Amazon Brand Modern Sofa",
+    productName: "Amazon Modern Sofa",
     imgUrl: productImg03,
     category: "sofa",
     price: 173,
