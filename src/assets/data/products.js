@@ -42,11 +42,10 @@ const products = [
     "This couch, with its deep cushions and sturdy frame, will help you add maximum comfort and style to any living space in your home. Never believe that you have to sacrifice comfort for style—this couch has it both in spades!",
     reviews: [
       {
-        rating: 4.7,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.5,
+    productDesc: 'Best sales',
   },
 
   {
@@ -61,15 +60,13 @@ const products = [
       "Contemporary, mid-century modern inspired sofa. Designed with elegant tufting on seat and back cushions and features track arms !",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Best sales',
   },
 
   {
@@ -84,15 +81,13 @@ const products = [
       "Crafted with a sturdy solid wood frame and filled with high-density sponge, our modular sectional sofa offers unparalleled comfort for long-term use. Sink into its plush cushions and enjoy a cozy seating experience like never before!",
     reviews: [
       {
-        rating: 4.6,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Best sales',
   },
   {
     id: "26",
@@ -106,15 +101,13 @@ const products = [
       "STYLE IN MINUTES with a timeless modern sofa to fit any room with the versatility you want. It's the perfect size for small spaces including college dorms, office spaces and smaller apartments! ",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Best sales',
   },
   {
     id: "04",
@@ -128,15 +121,13 @@ const products = [
       "Perfect for putting it in your kid's room, living room, bedrooms, playing room adding extra modern to your decor and turns your room into an inviting space with this simple yet classy elegant design!",
     reviews: [
       {
-        rating: 4.6,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Best sales',
   },
 
   {
@@ -151,15 +142,13 @@ const products = [
       "Grey Sofa: Our sofa is filled with 3 inches of memory foam. This means we can easily scrub coffee, drink or stains from the sofa's epidermis with a damp cloth. gary fabric does not age easily, has no odor, and does not have any harmful chemicals added!",
     reviews: [
       {
-        rating: 4.6,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Best sales',
   },
 
   {
@@ -174,15 +163,13 @@ const products = [
       "Perfect for putting it in your kid's room, living room, bedrooms, playing room adding extra modern to your decor and turns your room into an inviting space with this simple yet classy elegant design!",
     reviews: [
       {
-        rating: 4.6,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Best sales',
   },
   {
     id: "07",
@@ -196,15 +183,13 @@ const products = [
       "Blending together iconic splayed legs with beautifully tufted upholstery, our club chair offers a mid-century look to your lounge space. With its clean lines and understated look, this chair uses new materials to reimagine a traditional design!",
     reviews: [
       {
-        rating: 4.6,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Trending product',
   },
 
   {
@@ -219,15 +204,13 @@ const products = [
       "Comfortable and Supportive Seating: Enjoy a cozy seating experience that offers comfort without easily sinking for long-lasting relaxation!",
     reviews: [
       {
-        rating: 4.6,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Best sales',
   },
 
   {
@@ -242,15 +225,13 @@ const products = [
       "Easy Flip Out Footrest: Kick back and unwind effortlessly with the convenient flip-out footrest, transforming your chair into a true relaxation haven!",
     reviews: [
       {
-        rating: 4.6,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Trending product',
   },
 
   {
@@ -265,15 +246,13 @@ const products = [
       "Cushioned, insulated seat warmer is made from two layers of recycled 100g polyester fill; both fill and outer fabric use 100 percent recycled polyester!",
     reviews: [
       {
-        rating: 4.6,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Trending product',
   },
 
   {
@@ -283,20 +262,18 @@ const products = [
     category: "mobile",
     price: 799,
     shortDesc:
-      "",
+    "iPhone 15 Pro: Redefining excellence with its state-of-the-art features, including a brilliant Super Retina XDR display, lightning-fast A-series chip, advanced camera capabilities, and seamless 5G connectivity, setting a new standard for smartphones.",
     description:
-      "The iPhone 12 Pro is a high-tech smartphone created by Apple for users who value quality and innovation. It features a stylish design, a powerful A14 Bionic processor, an enhanced camera system for professional photo and video shooting, 5G support for fast connectivity, and a long-lasting battery. The iPhone 12 Pro also boasts a stunning Super Retina XDR display with HDR support, making it an excellent choice for those looking for a modern and powerful smartphone.",
+      "The iPhone 15 Pro is a high-tech smartphone created by Apple for users who value quality and innovation. It features a stylish design, a powerful A14 Bionic processor, an enhanced camera system for professional photo and video shooting, 5G support for fast connectivity, and a long-lasting battery. The iPhone 15 Pro also boasts a stunning Super Retina XDR display with HDR support, making it an excellent choice for those looking for a modern and powerful smartphone.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc: 'New arrivals',
   },
   {
     id: "25",
@@ -310,15 +287,13 @@ const products = [
       "Blending together iconic splayed legs with beautifully tufted upholstery, our club chair offers a mid-century look to your lounge space. With its clean lines and understated look, this chair uses new materials to reimagine a traditional design!",
     reviews: [
       {
-        rating: 4.6,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.7,
+    productDesc: 'Trending product',
   },
   {
     id: "11",
@@ -327,20 +302,18 @@ const products = [
     category: "mobile",
     price: 799,
     shortDesc:
-      "",
+    "iPhone 15 Pro Max: The pinnacle of Apple's innovation, featuring cutting-edge technology, a stunning Super Retina XDR display, powerful A-series chip, advanced camera system, and 5G connectivity for a truly next-level experience.",
     description:
       "The iPhone 15 Pro Max is a high-tech smartphone created by Apple for users who value quality and innovation. It features a stylish design, a powerful A14 Bionic processor, an enhanced camera system for professional photo and video shooting, 5G support for fast connectivity, and a long-lasting battery. The iPhone 12 Pro also boasts a stunning Super Retina XDR display with HDR support, making it an excellent choice for those looking for a modern and powerful smartphone.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc: 'New arrivals',
   },
 
   {
@@ -350,20 +323,18 @@ const products = [
     category: "mobile",
     price: 599,
     shortDesc:
-      "",
+    "Realme 8: A modern smartphone with an attractive design, high-performance MediaTek Helio G95 processor, Super AMOLED display, and 60Hz refresh rate, offering a smooth and immersive experience.",
     description:
       "The Realme 8 is a modern smartphone released by Realme, combining an attractive design, high performance, and an affordable price. The device features a bright and crisp Super AMOLED display with a 60Hz refresh rate for smooth content display. The Realme 8 is powered by the MediaTek Helio G95 processor, which provides excellent performance for gaming and everyday tasks.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc: 'New arrivals',
   },
 
   {
@@ -373,20 +344,18 @@ const products = [
     category: "mobile",
     price: 799,
     shortDesc:
-      "",
+    "OnePlus Nord: 6.49-inch 90Hz AMOLED, Snapdragon 690, 5G, 6GB RAM, and 128GB storage for a smooth, fast, and immersive smartphone experience.",
     description:
       "The OnePlus Nord N10 5G is a mid-range smartphone that offers 5G connectivity at a more affordable price point. It features a 6.49-inch display with a 90Hz refresh rate, providing smooth and responsive visuals. The phone is powered by the Qualcomm Snapdragon 690 chipset, which offers decent performance for everyday tasks and gaming. It also comes with 6GB of RAM and 128GB of internal storage, which can be expanded via a microSD card.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc: 'New arrivals',
   },
 
   {
@@ -396,20 +365,18 @@ const products = [
     category: "mobile",
     price: 899,
     shortDesc:
-      "",
+    "iPhone 14 Pro: Stunning 6.1-inch OLED, A16 chip, improved cameras, 5G, and iOS experience for seamless performance and luxury.",
     description:
       "The iPhone 14 Pro is a high-tech smartphone created by Apple for users who value quality and innovation. It features a stylish design, a powerful A14 Bionic processor, an enhanced camera system for professional photo and video shooting, 5G support for fast connectivity, and a long-lasting battery. The iPhone 12 Pro also boasts a stunning Super Retina XDR display with HDR support, making it an excellent choice for those looking for a modern and powerful smartphone.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc: 'New arrivals',
   },
 
   {
@@ -419,20 +386,18 @@ const products = [
     category: "mobile",
     price: 699,
     shortDesc:
-      "",
+    "Samsung Galaxy S22: 6.1-inch AMOLED, 120Hz, Snapdragon 8 Gen 1/Exynos 2200, fast and vibrant for quality performance.",
     description:
     "The Galaxy S22 features a stunning 6.1-inch Dynamic AMOLED display with a 120Hz refresh rate, providing vibrant colors and smooth scrolling. It is powered by either the Qualcomm Snapdragon 8 Gen 1 or Samsung's own Exynos 2200 chipset, depending on the region, delivering fast and efficient performance.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc: 'New arrivals',
   },
 
   {
@@ -447,15 +412,13 @@ const products = [
       "Rolex watches are known for their exceptional quality and craftsmanship. Each watch is hand-assembled by skilled craftsmen, and Rolex uses only the finest materials, including 18k gold, platinum, and high-grade stainless steel.Rolex watches are known for their precision and accuracy. Rolex has developed its own in-house movement, known as the Perpetual movement, which is renowned for its reliability and accuracy.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc:'Popular in category',
   },
 
   {
@@ -470,15 +433,13 @@ const products = [
       "The Easy Reader Watch features a clean and classic design with a white dial, black Arabic numerals, and a date window at the 3 o'clock position. The watch is available with a variety of case and strap options, including gold-tone, silver-tone, and leather straps.One of the standout features of the Timex Easy Reader Watch is the Indiglo night-light, which illuminates the dial with a blue light at the push of a button, making it easy to read the time in low-light conditions.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc:'Popular in category',
   },
 
   {
@@ -493,15 +454,13 @@ const products = [
       "Rolex watches are known for their exceptional quality and craftsmanship. Each watch is hand-assembled by skilled craftsmen, and Rolex uses only the finest materials, including 18k gold, platinum, and high-grade stainless steel.Rolex watches are known for their precision and accuracy. Rolex has developed its own in-house movement, known as the Perpetual movement, which is renowned for its reliability and accuracy.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc:'Popular in category',
   },
 
   {
@@ -516,15 +475,13 @@ const products = [
       "The Apple Watch SE features the same sleek and stylish design as the flagship models, with a square-shaped Retina display and a range of case and band options to choose from.Like other Apple Watches, the Apple Watch SE offers a range of health and fitness tracking features, including heart rate monitoring, activity tracking, and the ability to track workouts and view progress over time.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc:'Popular in category',
   },
 
   {
@@ -539,15 +496,13 @@ const products = [
       "The Beats Studio Wireless headphones connect to your devices via Bluetooth, allowing for wireless listening and freedom of movement.The Beats Studio Wireless headphones offer long battery life, with up to 22 hours of playback time on a single charge. They also feature a Fast Fuel feature that provides up to 3 hours of playback time with just a 10-minute charge.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc: 'New arrivals',
   },
 
   {
@@ -562,15 +517,13 @@ const products = [
       "The Beats EP headphones connect to your devices via a 3.5mm headphone jack, providing a reliable and stable connection for audio playback.The Beats EP headphones are compatible with a wide range of devices, including smartphones, tablets, and laptops, making them a versatile option for everyday use.",
     reviews: [
       {
-        rating: 4.8,
         text: "Very good product! I really like it!",
       },
       {
-        rating: 4.9,
         text: "Very good product! I really like it!",
       },
     ],
-    avgRating: 4.8,
+    productDesc: 'New arrivals',
   },
 ];
 
