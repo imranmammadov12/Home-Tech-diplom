@@ -63,7 +63,7 @@ const Home = () => {
                  Discover minimalist designs that redefine modern living.
                   Your home, reimagined.</p>
 
-                <motion.button  whileTap={{scale: 1.2}} className="buy__btn"><Link to='/shop'>SHOP NOW</Link></motion.button>
+                  <Link to='/shop'><motion.button  whileTap={{scale: 1.2}} className="buy__btn">SHOP NOW</motion.button></Link>
             </div>
           </Col>
 
