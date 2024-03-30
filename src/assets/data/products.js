@@ -56,9 +56,9 @@ const products = [
     category: "sofa",
     price: 253,
     shortDesc:
-      "Compact sofa size - small space friendly. Mix and match with the rest of the collection. !",
+      "Compact sofa size - small space friendly. Mix and match with the rest of the collection !",
     description:
-      "Contemporary, mid-century modern inspired sofa. Designed with elegant tufting on seat and back cushions and features track arms. !",
+      "Contemporary, mid-century modern inspired sofa. Designed with elegant tufting on seat and back cushions and features track arms !",
     reviews: [
       {
         rating: 4.8,
